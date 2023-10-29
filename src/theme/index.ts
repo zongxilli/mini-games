@@ -9,12 +9,20 @@ import { Musics, MusicsSrcs, ThemeMusics } from './musics';
 import Shadows, { ThemeShadows } from './shadows';
 import Videos, { ThemeVideos } from './videos';
 
-const THEMES = {
+export const THEMES_MODE = {
   light: 'light',
   dark: 'dark',
 } as const;
 
-type ThemeMode = (typeof THEMES)[keyof typeof THEMES];
+export type ThemeMode = (typeof THEMES_MODE)[keyof typeof THEMES_MODE];
+
+export const THEMES_LANGUAGE = {
+  chinese: 'cn',
+  english: 'en',
+} as const;
+
+export type ThemeLanguage =
+  (typeof THEMES_LANGUAGE)[keyof typeof THEMES_LANGUAGE];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Theme = {
@@ -32,9 +40,9 @@ type Theme = {
 
 const getTheme = (themeMode: ThemeMode) => {
   switch (themeMode) {
-    case THEMES.light:
+    case THEMES_MODE.light:
       return {
-        mode: THEMES.light,
+        mode: THEMES_MODE.light,
         colors: LightColors,
         shadows: Shadows,
         fonts: Fonts,
@@ -46,9 +54,9 @@ const getTheme = (themeMode: ThemeMode) => {
         links: Links,
       };
 
-    case THEMES.dark:
+    case THEMES_MODE.dark:
       return {
-        mode: THEMES.dark,
+        mode: THEMES_MODE.dark,
         colors: DarkColors,
         shadows: Shadows,
         fonts: Fonts,
@@ -62,7 +70,7 @@ const getTheme = (themeMode: ThemeMode) => {
 
     default:
       return {
-        mode: THEMES.light,
+        mode: THEMES_MODE.light,
         colors: LightColors,
         shadows: Shadows,
         fonts: Fonts,

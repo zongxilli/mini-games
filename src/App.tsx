@@ -1,14 +1,24 @@
 import { AnimatePresence } from 'framer-motion';
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { ThemeProvider } from 'styled-components';
 
+import { useAppSelector } from './hooks';
 import { getTheme, GlobalStyles } from './theme';
 import Career from './views/career/career';
 import Home from './views/home/home';
 
 const App = () => {
+  const { mode } = useAppSelector((state) => ({
+    mode: state.theme.mode,
+  }));
+
   const renderGlobalComponents = () => (
-    <>{/* <ReactTooltip effect='float' /> */}</>
+    <>
+      <GlobalStyles />
+      <ToastContainer position='bottom-left' theme='light' />
+      {/* <ReactTooltip effect='float' /> */}
+    </>
   );
 
   const renderCustomGlobalComponents = () => <>{/* <Music /> */}</>;
@@ -23,8 +33,7 @@ const App = () => {
   return (
     <>
       {renderGlobalComponents()}
-      <ThemeProvider theme={getTheme('light')}>
-        <GlobalStyles />
+      <ThemeProvider theme={() => getTheme(mode)}>
         {renderCustomGlobalComponents()}
         <AnimatePresence>{renderRoutes()}</AnimatePresence>
       </ThemeProvider>
