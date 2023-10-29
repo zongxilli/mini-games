@@ -4,7 +4,7 @@
     "react-app",
     "react-app/jest",
     "plugin:react/recommended",
-    "plugin:storybook/recommended",
+    // "plugin:storybook/recommended",
     "plugin:prettier/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript"
@@ -75,12 +75,12 @@
     "import/no-unused-modules": [
       "warn",
       {
-        "unusedExports": true,
-        "ignoreExports": [
-          "src/shared/index.ts",
-          "src/setupTests.tsx",
-          "**/__mocks__/**"
-        ]
+        "unusedExports": true
+        // "ignoreExports": [
+        //   "src/shared/index.ts",
+        //   "src/setupTests.tsx"
+        //   "**/__mocks__/**"
+        // ]
       }
     ],
     "import/no-useless-path-segments": [
