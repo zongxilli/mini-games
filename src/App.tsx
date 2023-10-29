@@ -2,6 +2,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import { getTheme, GlobalStyles } from './theme';
 import Career from './views/career/career';
 import Home from './views/home/home';
 
@@ -22,7 +23,8 @@ const App = () => {
   return (
     <>
       {renderGlobalComponents()}
-      <ThemeProvider theme={{}}>
+      <ThemeProvider theme={getTheme('light')}>
+        <GlobalStyles />
         {renderCustomGlobalComponents()}
         <AnimatePresence>{renderRoutes()}</AnimatePresence>
       </ThemeProvider>
