@@ -7,6 +7,11 @@ const GlobalStyles = createGlobalStyle`
     transition: color 1.5s ease-in-out;
     transition: background-color 1.5s ease-in-out;
 
+    body,html {
+      margin: 0;
+      padding: 0;
+    }
+
     // scroll behaviour
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch; // only supported by iOS
