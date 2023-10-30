@@ -6,13 +6,12 @@ import { Middleware } from 'redux';
 import { runSagas, sagaMiddleware } from '../sagas/sagas';
 
 import initialState from './initialStates';
+import * as storage from './localStorage';
 import theme from './theme';
-// import * as storage from './localStorage';
 
 setAutoFreeze(false);
 
-// TODO: support local storage
-// const persistedState = storage.loadState();
+const persistedState = storage.loadState();
 
 const store = configureStore({
   reducer: {
@@ -20,7 +19,7 @@ const store = configureStore({
   },
   preloadedState: {
     ...initialState,
-    // ...persistedState,
+    ...persistedState,
   },
   middleware: () => {
     const ms: Middleware[] = [sagaMiddleware];
@@ -29,7 +28,7 @@ const store = configureStore({
   },
 });
 
-// storage.observeStore(store);
+storage.observeStore(store);
 
 // initialize redux-saga
 runSagas();
