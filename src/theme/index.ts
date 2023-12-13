@@ -8,6 +8,7 @@ import Links, { ThemeLinks } from './links';
 import { Musics, MusicsSrcs, ThemeMusics } from './musics';
 import Shadows, { ThemeShadows } from './shadows';
 import Videos, { ThemeVideos } from './videos';
+import ZIndexes, { ThemeZIndexes } from './zIndex';
 
 export const THEMES_MODE = {
   light: 'light',
@@ -24,9 +25,8 @@ export const THEMES_LANGUAGE = {
 export type ThemeLanguage =
   (typeof THEMES_LANGUAGE)[keyof typeof THEMES_LANGUAGE];
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Theme = {
-  name: ThemeMode;
+  mode: ThemeMode;
   colors: ThemeColors;
   shadows: ThemeShadows;
   fonts: ThemeFonts;
@@ -36,9 +36,10 @@ type Theme = {
   files: ThemeFiles;
   musics: ThemeMusics;
   links: ThemeLinks;
+  zIndexes: ThemeZIndexes;
 };
 
-const getTheme = (themeMode: ThemeMode) => {
+const getTheme = (themeMode: ThemeMode): Theme => {
   switch (themeMode) {
     case THEMES_MODE.light:
       return {
@@ -52,6 +53,7 @@ const getTheme = (themeMode: ThemeMode) => {
         files: Files,
         musics: Musics,
         links: Links,
+        zIndexes: ZIndexes,
       };
 
     case THEMES_MODE.dark:
@@ -66,6 +68,7 @@ const getTheme = (themeMode: ThemeMode) => {
         files: Files,
         musics: Musics,
         links: Links,
+        zIndexes: ZIndexes,
       };
 
     default:
@@ -80,6 +83,7 @@ const getTheme = (themeMode: ThemeMode) => {
         files: Files,
         musics: Musics,
         links: Links,
+        zIndexes: ZIndexes,
       };
   }
 };

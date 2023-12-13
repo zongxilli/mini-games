@@ -5,7 +5,6 @@ import { ThemeProvider } from 'styled-components';
 
 import { useAppSelector } from './hooks';
 import { getTheme, GlobalStyles } from './theme';
-import Career from './views/career/career';
 import Home from './views/home/home';
 
 const App = () => {
@@ -17,7 +16,6 @@ const App = () => {
     <>
       <GlobalStyles />
       <ToastContainer position='bottom-left' theme='light' />
-      {/* <ReactTooltip effect='float' /> */}
     </>
   );
 
@@ -26,7 +24,6 @@ const App = () => {
   const renderRoutes = () => (
     <Routes>
       <Route path='/*' element={<Home />} />
-      <Route path='career/*' element={<Career />} />
     </Routes>
   );
 

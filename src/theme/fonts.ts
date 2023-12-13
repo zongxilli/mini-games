@@ -1,10 +1,8 @@
 const Fonts = {
-  clash: "'Clash Display', sans-serif",
-  fira: "'Fira Code', monospace",
-  hachi: "'Hachi Maru Pop', cursive",
+  BalooThambi2: "'Baloo Thambi 2', sans-serif",
 
   // for Chinese
-  kuaile: " 'ZCOOL KuaiLe', cursive",
+  noto: "'Noto Sans Simplified Chinese', sans-serif",
 } as const;
 
 export type ThemeFonts = typeof Fonts;

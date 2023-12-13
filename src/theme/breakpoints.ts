@@ -11,4 +11,5 @@ const Breakpoints = {
   largeHeight: '72rem',
 } as const;
 
+// eslint-disable-next-line import/no-unused-modules
 export default Breakpoints;

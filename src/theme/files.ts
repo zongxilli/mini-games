@@ -1,8 +1,4 @@
-// import resume from './files/resume.pdf';
-
-const Files = {
-  // resume: resume,
-} as const;
+const Files = {} as const;
 
 export type ThemeFiles = typeof Files;
 
