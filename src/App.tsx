@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { useAppSelector } from './hooks';
 import { getTheme, GlobalStyles } from './theme';
 import Home from './views/home/home';
+import TicTacToe from './views/ticTacToe/ticTacToe';
 
 const App = () => {
   const { mode } = useAppSelector((state) => ({
@@ -24,6 +25,7 @@ const App = () => {
   const renderRoutes = () => (
     <Routes>
       <Route path='/*' element={<Home />} />
+      <Route path='/tictactoe' element={<TicTacToe />} />
     </Routes>
   );
 
