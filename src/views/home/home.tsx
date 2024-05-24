@@ -7,6 +7,7 @@ import { actions as themeActions } from '../../reducers/theme';
 import { Button } from '../../shared';
 
 import {
+  Buttons,
   Container,
   PageTitleContainer,
   SwitchThemeContainer,
@@ -51,14 +52,21 @@ const Home = () => {
       link: '/tictactoe',
       label: 'Tic Tac Toe',
     },
+    {
+      link: '/game2048',
+      label: '2048',
+    },
   ] as const;
 
-  const renderGameButtons = () =>
-    games.map((game) => (
-      <Button key={game.label} onClick={() => navigate(game.link)}>
-        {game.label}
-      </Button>
-    ));
+  const renderGameButtons = () => (
+    <Buttons>
+      {games.map((game) => (
+        <Button key={game.label} onClick={() => navigate(game.link)}>
+          {game.label}
+        </Button>
+      ))}
+    </Buttons>
+  );
 
   return (
     <Container>

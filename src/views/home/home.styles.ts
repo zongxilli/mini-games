@@ -25,3 +25,10 @@ export const PageTitleContainer = styled(Subtitle1)`
   top: 2rem;
   left: 2rem;
 `;
+
+export const Buttons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+`;
