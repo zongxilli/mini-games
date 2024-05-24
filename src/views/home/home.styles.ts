@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 
+import { Subtitle1 } from '../../shared';
+
 export const Container = styled.div`
   width: 100dvw;
   height: 100dvh;
@@ -18,7 +20,7 @@ export const SwitchThemeContainer = styled.div`
   cursor: pointer;
 `;
 
-export const PageTitleContainer = styled.div`
+export const PageTitleContainer = styled(Subtitle1)`
   position: absolute;
   top: 2rem;
   left: 2rem;

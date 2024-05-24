@@ -3,7 +3,7 @@ import { useTheme } from 'styled-components';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { actions as themeActions } from '../../reducers/theme';
-import { Button, Subtitle1 } from '../../shared';
+import { Button } from '../../shared';
 
 import {
   Container,
@@ -39,11 +39,7 @@ const Home = () => {
   };
 
   const renderPageTitle = () => {
-    return (
-      <PageTitleContainer>
-        <Subtitle1>Kenny&apos;s mini games</Subtitle1>
-      </PageTitleContainer>
-    );
+    return <PageTitleContainer>Kenny&apos;s mini games</PageTitleContainer>;
   };
 
   const games = [
