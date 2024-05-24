@@ -3,10 +3,11 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
 
   * {
-    font-family: 'Clash Display', sans-serif;
+    font-family: 'Baloo Thambi 2', sans-serif;
     transition: color 1.5s ease-in-out;
     transition: background-color 1.5s ease-in-out;
 
+    // remove default margin and padding for all browsers
     body,html {
       margin: 0;
       padding: 0;
