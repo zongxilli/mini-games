@@ -19,3 +19,10 @@ export const PageTitleContainer = styled(H4)`
   left: auto;
   right: auto;
 `;
+
+export const ResultContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+`;
