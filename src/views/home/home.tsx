@@ -1,3 +1,4 @@
+import { shallowEqual } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from 'styled-components';
 
@@ -16,9 +17,12 @@ const Home = () => {
   const theme = useTheme();
   const dispatch = useAppDispatch();
 
-  const { mode } = useAppSelector((state) => ({
-    mode: state.theme.mode,
-  }));
+  const { mode } = useAppSelector(
+    (state) => ({
+      mode: state.theme.mode,
+    }),
+    shallowEqual,
+  );
 
   const renderSwitchThemeIcon = () => {
     const Icon = mode === 'dark' ? theme.icons.moon : theme.icons.sun;

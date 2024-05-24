@@ -26,3 +26,9 @@ export const ResultContainer = styled.div`
   align-items: center;
   gap: 1rem;
 `;
+
+export const BackButtonContainer = styled.div`
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+`;

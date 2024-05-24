@@ -1,4 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
+import { shallowEqual } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { ThemeProvider } from 'styled-components';
@@ -9,9 +10,12 @@ import Home from './views/home/home';
 import TicTacToe from './views/ticTacToe/ticTacToe';
 
 const App = () => {
-  const { mode } = useAppSelector((state) => ({
-    mode: state.theme.mode,
-  }));
+  const { mode } = useAppSelector(
+    (state) => ({
+      mode: state.theme.mode,
+    }),
+    shallowEqual,
+  );
 
   const renderGlobalComponents = () => (
     <>

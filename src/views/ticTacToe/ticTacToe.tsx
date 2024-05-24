@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Body1, Button } from '../../shared';
 
 import Board from './components/board';
 import {
+  BackButtonContainer,
   Container,
   PageTitleContainer,
   ResultContainer,
@@ -42,15 +44,31 @@ const calculateWinner = (squares: CurrentBoard) => {
   return null;
 };
 
+const noWinner = (squares: CurrentBoard) => {
+  for (const square of squares) {
+    if (square === '') return false;
+  }
+
+  return true;
+};
+
 const initialBoard: CurrentBoard = ['', '', '', '', '', '', '', '', ''];
 
 const TicTacToe = () => {
+  const navigate = useNavigate();
+
   const [currentBoard, setCurrentBoard] = useState<CurrentBoard>(initialBoard);
   const [currentMove, setCurrentMove] = useState(0);
   const [winner, setWinner] = useState('');
 
   useEffect(() => {
     const possibleWinner = calculateWinner(currentBoard);
+    const endWithNoWinner = noWinner(currentBoard);
+
+    if (endWithNoWinner && !possibleWinner) {
+      alert('No winner, game will restart!');
+      setCurrentBoard(initialBoard);
+    }
 
     if (possibleWinner) setWinner(possibleWinner);
   }, [currentBoard, currentMove]);
@@ -58,6 +76,9 @@ const TicTacToe = () => {
   return (
     <Container>
       <PageTitleContainer>Tic Tac Toe</PageTitleContainer>
+      <BackButtonContainer>
+        <Button onClick={() => navigate('/')}>Back</Button>
+      </BackButtonContainer>
 
       {winner === '' && (
         <Board
