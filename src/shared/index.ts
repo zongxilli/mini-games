@@ -1,3 +1,46 @@
+/* eslint-disable import/no-unused-modules */
 import Button from './button/button';
+import {
+  Body1,
+  Body1OneLine,
+  Body2,
+  Body2OneLine,
+  Caption,
+  CaptionOneLine,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H5OneLine,
+  H6,
+  H6OneLine,
+  Key,
+  Subtitle1,
+  Subtitle1OneLine,
+  Subtitle2,
+  Subtitle2OneLine,
+} from './typography';
 
-export { Button };
+export {
+  Button,
+  Body1,
+  Body1OneLine,
+  Body2,
+  Body2OneLine,
+  Caption,
+  CaptionOneLine,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H5OneLine,
+  H6,
+  H6OneLine,
+  Key,
+  Subtitle1,
+  Subtitle1OneLine,
+  Subtitle2,
+  Subtitle2OneLine,
+};
