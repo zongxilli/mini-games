@@ -1,9 +1,19 @@
-import { AiOutlineDownload, AiOutlinePause } from 'react-icons/ai';
-import { FaGithub, FaGitlab, FaLinkedinIn, FaNodeJs } from 'react-icons/fa';
-import { HiOutlineMail } from 'react-icons/hi';
-import { IoIosPlay } from 'react-icons/io';
-import { MdChevronRight } from 'react-icons/md';
 import {
+  BiLogoGithub,
+  BiLogoGitlab,
+  BiLogoGmail,
+  BiLogoLinkedinSquare,
+} from 'react-icons/bi';
+import { BsInfoCircle } from 'react-icons/bs';
+import { FaNodeJs, FaRegUser } from 'react-icons/fa';
+import { FaMobileScreen } from 'react-icons/fa6';
+import { IoIosArrowDown, IoIosArrowUp, IoIosPlay } from 'react-icons/io';
+import { MdDownload, MdMusicNote, MdMusicOff, MdPause } from 'react-icons/md';
+import { PiFilePdf } from 'react-icons/pi';
+import {
+  RiContractLeftLine,
+  RiContractRightLine,
+  RiDriveFill,
   RiEnglishInput,
   RiMoonFoggyLine,
   RiSunFoggyLine,
@@ -36,6 +46,8 @@ import {
   SiTestinglibrary,
   SiTypescript,
 } from 'react-icons/si';
+import { TbPlayerTrackNextFilled } from 'react-icons/tb';
+import { VscFilePdf } from 'react-icons/vsc';
 import { WiDirectionUpRight } from 'react-icons/wi';
 
 const Icons = {
@@ -44,16 +56,27 @@ const Icons = {
   translate: RiTranslate,
   english: RiEnglishInput,
   upRight: WiDirectionUpRight,
-  pause: AiOutlinePause,
+  pause: MdPause,
   play: IoIosPlay,
-  rightArrow: MdChevronRight,
-  download: AiOutlineDownload,
-  email: HiOutlineMail,
+  rightArrow: RiContractRightLine,
+  leftArrow: RiContractLeftLine,
+  arrowUp: IoIosArrowUp,
+  arrowDown: IoIosArrowDown,
+  download: MdDownload,
+  filePDF: VscFilePdf,
+  filePDF2: PiFilePdf,
+  email: BiLogoGmail,
+  music: MdMusicNote,
+  musicOff: MdMusicOff,
+  next: TbPlayerTrackNextFilled,
+  info: BsInfoCircle,
+  user: FaRegUser,
+  mobile: FaMobileScreen,
 
   // social logos
-  linkedin: FaLinkedinIn,
-  github: FaGithub,
-  gitlab: FaGitlab,
+  linkedin: BiLogoLinkedinSquare,
+  github: BiLogoGithub,
+  gitlab: BiLogoGitlab,
 
   // frontend logos
   reactJs: SiReact,
@@ -86,6 +109,9 @@ const Icons = {
   python: SiPython,
   c: SiCplusplus,
   r: SiRstudio,
+
+  // Google app icons
+  googleDrive: RiDriveFill,
 } as const;
 
 export type ThemeIcons = typeof Icons;
