@@ -31,4 +31,8 @@ export const BackButtonContainer = styled.div`
   position: absolute;
   top: 2rem;
   left: 2rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 `;

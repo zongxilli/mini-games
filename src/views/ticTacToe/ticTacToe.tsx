@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Body1, Button } from '../../shared';
+import { Button } from '../../shared';
 
 import Board from './components/board';
 import {
   BackButtonContainer,
   Container,
   PageTitleContainer,
-  ResultContainer,
 } from './ticTacToe.styles';
 
-type BoardItem = 'X' | 'O' | '';
+export type BoardItem = 'X' | 'O' | '';
 export type CurrentBoard = [
   BoardItem,
   BoardItem,
@@ -59,7 +58,7 @@ const TicTacToe = () => {
 
   const [currentBoard, setCurrentBoard] = useState<CurrentBoard>(initialBoard);
   const [currentMove, setCurrentMove] = useState(0);
-  const [winner, setWinner] = useState('');
+  const [winner, setWinner] = useState<BoardItem>('');
 
   useEffect(() => {
     const possibleWinner = calculateWinner(currentBoard);
@@ -78,29 +77,23 @@ const TicTacToe = () => {
       <PageTitleContainer>Tic Tac Toe</PageTitleContainer>
       <BackButtonContainer>
         <Button onClick={() => navigate('/')}>Back</Button>
+        <Button
+          onClick={() => {
+            setCurrentBoard(initialBoard);
+            setWinner('');
+          }}
+        >
+          New Game
+        </Button>
       </BackButtonContainer>
 
-      {winner === '' && (
-        <Board
-          currentBoard={currentBoard}
-          setCurrentBoard={setCurrentBoard}
-          currentMove={currentMove}
-          setCurrentMove={setCurrentMove}
-        />
-      )}
-      {winner !== '' && (
-        <ResultContainer>
-          <Body1>Winner is: {winner}!</Body1>
-          <Button
-            onClick={() => {
-              setCurrentBoard(initialBoard);
-              setWinner('');
-            }}
-          >
-            Restart Game
-          </Button>
-        </ResultContainer>
-      )}
+      <Board
+        currentBoard={currentBoard}
+        setCurrentBoard={setCurrentBoard}
+        currentMove={currentMove}
+        setCurrentMove={setCurrentMove}
+        winner={winner}
+      />
     </Container>
   );
 };
