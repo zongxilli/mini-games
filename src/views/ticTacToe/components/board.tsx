@@ -1,8 +1,9 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import { CurrentBoard } from '../ticTacToe';
+import { H1 } from '../../../shared';
+import { BoardItem, CurrentBoard } from '../ticTacToe';
 
-import { BoardContainer } from './components.styles';
+import { BoardContainer, GameOverLabel } from './components.styles';
 import Square from './square';
 
 type BoardProps = {
@@ -10,6 +11,7 @@ type BoardProps = {
   setCurrentBoard: Dispatch<SetStateAction<CurrentBoard>>;
   currentMove: number;
   setCurrentMove: Dispatch<SetStateAction<number>>;
+  winner: BoardItem;
 };
 
 const Board = ({
@@ -17,6 +19,7 @@ const Board = ({
   setCurrentBoard,
   currentMove,
   setCurrentMove,
+  winner,
 }: BoardProps) => {
   const isXNext = currentMove % 2 === 0;
 
@@ -39,9 +42,19 @@ const Board = ({
     />
   );
 
+  const renderWinnerInfo = () => {
+    if (winner === '') return null;
+    return (
+      <GameOverLabel>
+        <H1>Winner is: {winner}!</H1>
+      </GameOverLabel>
+    );
+  };
+
   return (
     <BoardContainer>
       {new Array(9).fill(0).map((_i, idx) => renderSquare(idx))}
+      {renderWinnerInfo()}
     </BoardContainer>
   );
 };
